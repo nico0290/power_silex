@@ -4,8 +4,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Constraints;
 
 require_once __DIR__.'/../vendor/autoload.php';
-require_once __DIR__.'/../models/students.class.php';
-require_once __DIR__.'/../models/years.class.php';
+require_once __DIR__.'/../models/actors.class.php';
+require_once __DIR__.'/../models/characters.class.php';
+require_once __DIR__.'/../models/episodes.class.php';
+require_once __DIR__.'/../models/seasons.class.php';
 
 $app = new Silex\Application();
 
@@ -13,6 +15,9 @@ $app = new Silex\Application();
 $app['debug'] = true;
 
 // Services
+$app->register(new Silex\Provider\FormServiceProvider());
+$app->register(new Silex\Provider\TranslationServiceProvider());
+$app->register(new Silex\Provider\ValidatorServiceProvider());
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views',
@@ -21,7 +26,7 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     'db.options' => array (
         'driver'    => 'pdo_mysql',
         'host'      => 'localhost',
-        'dbname'    => 'hetic_partiel',
+        'dbname'    => 'hetic_silex_power',
         'user'      => 'root',
         'password'  => 'root',
         'charset'   => 'utf8'
@@ -30,13 +35,15 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
 $app['db']->setFetchMode(PDO::FETCH_OBJ);
 
 // Models
-$students_model = new StudentsModel($app['db']);
-$years_model = new YearsModel($app['db']);
+$actors_model = new ActorsModel($app['db']);
+$characters_model = new CharactersModel($app['db']);
+$episodes_model = new EpisodesModel($app['db']);
+$seasons_model = new SeasonsModel($app['db']);
 
 // Middlewares
 $app->before(function() use ($app)
 {
-    $app['twig']->addGlobal('title','Hetic');
+    $app['twig']->addGlobal('title','Power Wiki');
 });
 
 // Routes
@@ -48,54 +55,83 @@ $app->get('/', function() use ($app)
 })
 ->bind('home');
 
-$app->get('/students', function() use ($app,$students_model)
+$app->get('/actors', function() use ($app,$actors_model)
 {
-	$students = $students_model->getAll();
-    
+	$actors = $actors_model->getAll();
+	
 	$data = array(
-		'students' => $students
+		'actors' => $actors
 	);
 
-	return $app['twig']->render('pages/students.twig',$data);
+	return $app['twig']->render('pages/actors.twig',$data);
 })
-->bind('students');
+->bind('actors');
 
-$app->get('/students/{id}', function($id) use ($app,$students_model)
+$app->get('/actors/{id}', function($id) use ($app,$actors_model)
 {
-    $students = $students_model->getAllForStudentId($id);
+    $actors = $actors_model->getAllForActorId($id);
     
     $data = array(
-        'students' => $students
+        'actors' => $actors
     );
 
-    return $app['twig']->render('pages/student.twig',$data);
+    return $app['twig']->render('pages/actor.twig',$data);
 })
-->bind('student');
+->bind('actor');
 
-$app->get('/years', function() use ($app,$years_model)
+$app->get('/seasons', function() use ($app,$seasons_model)
 {
-    $years = $years_model->getAll();
+    $seasons = $seasons_model->getAll();
     
     $data = array(
-        'years' => $years
+        'seasons' => $seasons
     );
 
-    return $app['twig']->render('pages/years.twig',$data);
+    return $app['twig']->render('pages/seasons.twig',$data);
 })
-->bind('years');
+->bind('seasons');
 
-$app->get('/years/{id}', function($id) use ($app,$years_model,$students_model)
+$app->get('/seasons/{id}', function($id) use ($app,$seasons_model)
 {
-    $years         = $years_model->getOneById($id);
+    $seasons         = $seasons_model->getOneById($id);
     
     $data = array(
-        'years' => $years
+        'seasons' => $seasons
     );
 
-    return $app['twig']->render('pages/year.twig',$data);
+    return $app['twig']->render('pages/season.twig',$data);
 })
-->bind('year');
+->bind('season');
 
+$app->get('/episodes', function() use ($app,$seasons_model)
+{
+    $seasons = $seasons_model->getAllWithEpisodes();
+    
+    $data = array(
+        'seasons' => $seasons
+    );
+
+    return $app['twig']->render('pages/episodes.twig',$data);
+})
+->bind('episodes');
+
+$app->get('/episodes/{id}', function($id) use ($app,$episodes_model,$actors_model)
+{
+    $episodes         = $episodes_model->getOneById($id);
+    
+    $data = array(
+        'episodes' => $episodes
+    );
+
+    return $app['twig']->render('pages/episode.twig',$data);
+})
+->bind('episode');
+
+$app->get('/test', function() use ($app)
+{
+    $url = $app['url_generator']->generate('actors',array('id'=>88));
+    return $app->redirect($url);
+});
 
 // Error
 $app->error(function (\Exception $e, $code) use ($app)
@@ -109,7 +145,6 @@ $app->error(function (\Exception $e, $code) use ($app)
 
     return $app['twig']->render('pages/error.twig',$data);
 });
-
 
 // Run
 $app->run();

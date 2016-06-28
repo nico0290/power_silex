@@ -1,0 +1,30 @@
+{{include('partials/header.twig')}}
+
+
+<div class="row">
+    <div style="clear: both; height: 85px;"></div>
+    {% for season in seasons %}
+        <h3 class="season-title">{{ season.id }}</h3>
+        <h4>Season {{ season.id }}</h4>
+        {% for episode in season.episodes %}
+            <div class="col s4">
+                <div class="card">
+                    <div class="card-content center-align">
+                        <a href="{{url('episode',{id:episode.id})}}"> 
+                            <img src="{{episode.image_episode }}" height="130" width="175">
+                        </a>
+                        <p>S.{{episode.season_id }} Ep.{{episode.number }}</p>
+                    </div>
+                    <div class="card-action episode-title">
+                        <div class="center-align">
+                            <a href="{{url('episode',{id:episode.id})}}">{{episode.title}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <div style="clear: both; height: 85px;"></div>
+    {% endfor %}
+</div>
+
+{{include('partials/footer.twig')}}

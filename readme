@@ -5,8 +5,6 @@ Importer la base de données database.sql dans Mysql
 
 Fonctionnalités : 
 
-
-Création de la base de données sur les personnes et les années d'Hetic
-Ajout d'une table pour la jointure
-Rajout possible d'années, d'étudiants depuis la base de données
-
+Création de la base de données sur la série Power
+Jointure entre les tables
+Rajout possible d'acteurs, épisodes, saisons depuis la base de données

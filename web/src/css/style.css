@@ -1,6 +1,5 @@
 body{
     background-color: #353535;
-    font-family: Open sans;
 }
 
 header{
@@ -11,15 +10,12 @@ header{
     background-color: #505050;
 }
 
-.nav-wrapper a{
-    color: #168b37;
-}
-
 .card{
     background-color: #151515;
 }
 
 .container h1{
+    font-family: Lubalin Graph;
     color: #ffffff;
 }
 
@@ -36,29 +32,6 @@ header{
     color: #717171 !important;
 }
 
-.majuscule{
-    text-transform: uppercase;
-}
-
-.col.s3{
-    height: 150px;
-}
-
-.col.s3.year{
-    height: 130px;
-}
-
-.col.s3.year h5{
-    font-size: 14px;
-    color: #9a9a9a;
-}
-
-.row p{
-    font-size: 18px;
-    color: #ffffff;
-    margin-left: 15px;
-}
-
 .season-title{
     font-size: 200px;
     font-weight: 900;
@@ -73,46 +46,60 @@ header{
     width: 90% !important;
 }
 
-.col.s12.year h2{
-    color: #168b37;
+.col.s12.season img{
+    float: right;
+    margin-top: 20px;
 }
 
-.col.s12.year h3{
+.col.s12.season h3{
+    font-family: Lubalin Graph;
     color: #ffffff;
 }
 
-.col.s12.year h4{
+.col.s12.season h4{
+    font-family: Open sans;
     font-weight: 700;
     color: #ffffff;
     font-size: 28px;
 }
 
-.col.s12.year h5{
+.col.s12.season h5{
+    font-family: Open Sans;
     color: #ffffff;
     font-size: 16px;
     width: 40vw;
     text-align: justify;
 }
 
-.col.s12.student h3{
+.col.s12.actor img{
+    float: right;
+    margin-top: 20px;
+}
+
+.col.s12.actor h3{
+    font-family: Lubalin Graph;
     color: #ffffff;
 }
 
-.col.s12.student h4{
+.col.s12.actor h4{
+    font-family: Lubalin Graph;
     color: #ffffff;
 }
 
-.col.s12.student h5{
+.col.s12.actor h5{
+    font-family: Open Sans;
+    color: #ffffff;
+    font-size: 16px;
+    width: 45vw;
+    text-align: justify;
+}
+
+.col.s12.actor p{
+    font-family: Open Sans;
     color: #ffffff;
     font-size: 18px;
-    text-align: justify;
-    font-weight: 600;
+    font-weight: 700;
     text-decoration: underline;
-}
-
-.col.s12.student p{
-    color: #ffffff;
-    font-size: 14px;
 }
 
 .col.s12.episode img{
@@ -120,6 +107,7 @@ header{
 }
 
 .col.s12.episode h4{
+    font-family: Lubalin Graph;
     color: #ffffff;
 }
 
@@ -130,4 +118,57 @@ header{
 
 .episode_actors h5{
     color: #ABABAB;
+}
+
+
+
+
+
+
+
+/* resets and general styles */
+
+div.wrapper{
+    width: calc(4*225px);
+    margin: 0 auto;
+}
+
+/* countdown styles */
+
+div#countdown{color: #353535;}
+
+div#countdown p{
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}
+
+p.numbers{
+    width: 100%;
+    height: 85%;
+    background: #FFFFFF;
+    margin-top: -45px;
+    padding-top: 70px;
+    font-size: 50px;
+    font-weight: 900;
+}
+
+p.strings{
+    width: 100%;
+    height: auto;
+    padding: 30px 0;
+    background: #7B7B7B;
+    color: #FFFFFF;
+}
+
+div.cd-box{
+    width: 210px;
+    height: 180px;
+    background: #FFFFFF;
+    float: left;
+    padding: 25px 0 0 0;
+    margin: 30px 15px 0 0;
+    -webkit-box-shadow: 5px 6px 9px 1px rgba(53, 53, 53, 0.5);
+    -moz-box-shadow: 5px 6px 9px 1px rgba(53, 53, 53, 0.5);
+    box-shadow: 5px 6px 9px 1px rgba(53, 53, 53, 0.5);
 }

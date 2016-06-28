@@ -1,0 +1,20 @@
+{{include('partials/header.twig')}}
+
+<div class="row">
+    <div class="col s12 actor">
+        <img src="{{ actors.photo }}" height="400" width="270">
+        <h3>{{ actors.name }}</h3>
+        <h4>{{ actors.real_name }}</h4>
+        <h5>Occurence : {{ actors.occurrence }} episodes of 28</h5>
+        <p>Description</p>
+        <h5>{{ actors.description }}</h5>
+        <p>Apparition in episode</p>   
+        {% for episode in actors.episodes %}
+            <a href="{{url('episode',{id:episode.id})}}">
+                <h5>{{ episode.title }}</h5>
+            </a>
+        {% endfor %}
+    </div>
+</div>
+
+{{include('partials/footer.twig')}}

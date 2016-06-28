@@ -1,0 +1,22 @@
+{{include('partials/header.twig')}}
+
+<div class="row">
+    {% for _season in seasons %}
+        <div class="col s6">
+            <div class="card">
+                <div class="card-content center-align">
+                    <a href="{{url('season',{id:_season.id})}}">
+                        <img src="{{_season.image_season }}" height="400" width="290">
+                    </a>
+                </div>
+                <div class="card-action">
+                    <div class="center-align">
+                        <a href="{{url('season',{id:_season.id})}}">Season {{_season.id}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{{include('partials/footer.twig')}}

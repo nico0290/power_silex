@@ -1,0 +1,20 @@
+{{include('partials/header.twig')}}
+
+<div class="row">
+	{% for _actor in actors %}
+		<div class="col s3">
+			<div class="card">
+				<div class="card-content center-align">
+					<a href="{{url('actor',{id:_actor.id})}}"> 
+                        <img src="{{_actor.photo }}" height="200" width="140">
+                    </a>
+				</div>
+				<div class="card-action">
+					<a href="{{url('actor',{id:_actor.id})}}">{{_actor.name}}</a>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+</div>
+
+{{include('partials/footer.twig')}}

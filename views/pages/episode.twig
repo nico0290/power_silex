@@ -1,0 +1,24 @@
+{{include('partials/header.twig')}}
+
+<div class="row">
+    <div class="col s12 episode">
+        <div class="center-align">
+            <h4>{{ episodes.title }}</h4>
+            <h5>{{ episodes.synopsis_episode }}</h5>
+            <h5><b>Time :</b> {{ episodes.time }}'</h5>
+            <h5><b>Release date :</b> {{ episodes.date }}</h5>
+            <img src="{{ episodes.image_episode }}" height="570" width="800">
+            <h5><b>Characters in the episode</b></h5>
+            {% for actor in episodes.actors %}
+                <div class="episode_actors">
+                    <a href="{{url('actor',{id:actor.id})}}"> 
+                        <h5>{{ actor.name }}</h5>
+                        <img src="{{ actor.photo }}" height="200" width="140">
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{{include('partials/footer.twig')}}
