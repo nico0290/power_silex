@@ -1,0 +1,15 @@
+{{include('partials/header.twig')}}
+
+<div class="row">
+    <div class="col s12 student">
+        <h3>{{ students.first_name }} {{ students.last_name }}</h3>
+        <p>{{ students.slug }}</p>
+        <h5>Skill :</h5>
+        <p>Development : {{ students.skill_development }}</p>
+        <p>Design : {{ students.skill_design }}</p>
+        <p>Marketing : {{ students.skill_marketing }}</p>
+        <p>General culture : {{ students.skill_general_culture }}</p>
+    </div>
+</div>
+
+{{include('partials/footer.twig')}}

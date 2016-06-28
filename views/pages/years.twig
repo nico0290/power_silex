@@ -1,0 +1,17 @@
+{{include('partials/header.twig')}}
+
+<div class="row">
+    {% for _year in years %}
+        <div class="col s6">
+            <div class="card">
+                <div class="card-content center-align">
+                    <a href="{{url('year',{id:_year.id})}}">
+                        <p>{{_year.graduation_year }}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{{include('partials/footer.twig')}}

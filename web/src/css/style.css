@@ -1,0 +1,133 @@
+body{
+    background-color: #353535;
+    font-family: Open sans;
+}
+
+header{
+    margin-bottom: 10px;
+}
+
+.nav-wrapper{
+    background-color: #505050;
+}
+
+.nav-wrapper a{
+    color: #168b37;
+}
+
+.card{
+    background-color: #151515;
+}
+
+.container h1{
+    color: #ffffff;
+}
+
+.card-action a{
+    font-family: Open Sans;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    margin-right: 0px !important; 
+    color: #ffffff !important;
+}
+
+.card-content p{
+    color: #717171 !important;
+}
+
+.majuscule{
+    text-transform: uppercase;
+}
+
+.col.s3{
+    height: 150px;
+}
+
+.col.s3.year{
+    height: 130px;
+}
+
+.col.s3.year h5{
+    font-size: 14px;
+    color: #9a9a9a;
+}
+
+.row p{
+    font-size: 18px;
+    color: #ffffff;
+    margin-left: 15px;
+}
+
+.season-title{
+    font-size: 200px;
+    font-weight: 900;
+    position: absolute;
+    margin-top: -85px;
+    margin-left: -50px;
+    color: #ffffff;
+    opacity: 0.1;
+}
+
+.col.s10.info{
+    width: 90% !important;
+}
+
+.col.s12.year h2{
+    color: #168b37;
+}
+
+.col.s12.year h3{
+    color: #ffffff;
+}
+
+.col.s12.year h4{
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 28px;
+}
+
+.col.s12.year h5{
+    color: #ffffff;
+    font-size: 16px;
+    width: 40vw;
+    text-align: justify;
+}
+
+.col.s12.student h3{
+    color: #ffffff;
+}
+
+.col.s12.student h4{
+    color: #ffffff;
+}
+
+.col.s12.student h5{
+    color: #ffffff;
+    font-size: 18px;
+    text-align: justify;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.col.s12.student p{
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.col.s12.episode img{
+    margin-top: 20px;
+}
+
+.col.s12.episode h4{
+    color: #ffffff;
+}
+
+.episode_actors{
+    display: inline-block;
+    width: 280px;
+}
+
+.episode_actors h5{
+    color: #ABABAB;
+}

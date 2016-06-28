@@ -1,0 +1,18 @@
+{{include('partials/header.twig')}}
+
+<div class="row">
+    {% for _student in students %}
+        <div class="col s3">
+            <div class="card">
+                <div class="card-content center-align"> 
+                    <a href="{{url('student',{id:_student.id})}}">
+                        <p class="majuscule">{{_student.first_name}}</p>
+                        <p>{{_student.last_name}}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{{include('partials/footer.twig')}}
